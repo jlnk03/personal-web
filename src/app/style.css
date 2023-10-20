@@ -151,7 +151,7 @@
 .card:hover .card-letters {
     opacity: 1;
 }
-
+/* 
 @media(max-width: 600px) {
     :root {
         --card-size: 340px;
@@ -160,7 +160,7 @@
     .card {
         border-radius: 1rem;
     }
-}
+} */
 
 /* -- Extra Styles -- */
 

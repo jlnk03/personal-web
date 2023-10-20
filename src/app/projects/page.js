@@ -58,9 +58,8 @@ export default function Home() {
 
       {/* main */}
 
-      <div className='grid sm:grid-cols-2 grid-cols-1 gap-5'>
+      <div className='grid sm:grid-cols-2 grid-cols-1 gap-5 pb-12 sm:pb-0'>
         <Link href='/projects/muunai' className="w-96 h-56 bg-blue-950 text-blue-100 rounded-xl overflow-hidden text-4xl font-bold items-center flex flex-col justify-center">
-
 
           <div className="card-track">
             <div className="card-wrapper">
