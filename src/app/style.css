@@ -276,3 +276,11 @@
     filter: blur(200px);
     
 }
+
+.card-anim {
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    transform: perspective(1000px) rotateY(var(--rotate-y, 0deg)) rotateX(var(--rotate-x, 0deg))
+}
