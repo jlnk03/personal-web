@@ -25,7 +25,7 @@ function HomeLink({title, href, setMenuOpen, current, children}) {
                     {title}
                     </span>
                     </h2>
-                <div className="bg-white sm:aspect-[2] aspect-[0.5] w-[30vw] min-w-56 rounded-lg shadow-lg mt-2 grid place-items-center">
+                <div className="bg-white sm:aspect-[2] aspect-[1] w-[30vw] min-w-56 rounded-lg shadow-lg mt-2 grid place-items-center">
                     {children}
                 </div>
             </Link>

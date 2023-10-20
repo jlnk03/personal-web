@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
+import Link from 'next/link'
 
 function MorphingShapes({ children }) {
     // Define a single state variable
@@ -68,20 +69,20 @@ function MorphingShapes({ children }) {
 
     function parseStyleString(style) {
         return style.split(';')
-          .filter(Boolean)
-          .map(rule => rule.trim().split(':'))
-          .reduce((acc, [property, value]) => {
-            acc[camelCase(property)] = value.trim();
-            return acc;
-          }, {});
-      }
-      
-      function camelCase(str) {
+            .filter(Boolean)
+            .map(rule => rule.trim().split(':'))
+            .reduce((acc, [property, value]) => {
+                acc[camelCase(property)] = value.trim();
+                return acc;
+            }, {});
+    }
+
+    function camelCase(str) {
         return str.split('-').reduce((result, word, index) => {
-          return result + (index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+            return result + (index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
         }, '');
-      }
-      
+    }
+
 
     return (
         <div
@@ -102,16 +103,25 @@ function MorphingShapes({ children }) {
             ></div>
 
             {/* blue */}
-            <div
-                className={`absolute bg-[#072541] ${shapeThree[shapeConfig.config]}`}
-                style={{ transition: 'all 750ms ease-in-out', ...parseStyleString(shapeConfig.radius) }}
-            ></div>
+            <Link href='/projects/muunai' className='group'>
+                <div
+
+                    className={`absolute bg-[#072541] flex justify-center items-center ${shapeThree[shapeConfig.config]}`}
+                    style={{ transition: 'all 750ms ease-in-out', ...parseStyleString(shapeConfig.radius) }}
+                >
+                    <span className="group-hover:opacity-100 opacity-0 text-5xl font-bold text-white z-20">m</span>
+                </div>
+            </Link>
 
             {/* red */}
-            <div
-                className={`absolute bg-[#F8BDEB] ${shapeFour[shapeConfig.config]}`}
-                style={{ transition: 'all 750ms ease-in-out', ...parseStyleString(shapeConfig.radius) }}
-            ></div>
+            <Link href='/projects/swinglab' className='group'>
+                <div
+                    className={`absolute bg-[#F8BDEB] flex justify-center items-center ${shapeFour[shapeConfig.config]}`}
+                    style={{ transition: 'all 750ms ease-in-out', ...parseStyleString(shapeConfig.radius) }}
+                >
+                    <span className="group-hover:opacity-100 opacity-0 text-5xl font-bold text-white z-20">S</span>
+                </div>
+            </Link>
 
             {/* sky */}
             <div

@@ -1,9 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
 
 function MenuButton({ menuOpen, setMenuOpen }) {
+
+    const pathname = usePathname()
+
     return (
         <>
             <div className='absolute bottom-14 flex w-full justify-center'>
@@ -26,7 +30,7 @@ function MenuButton({ menuOpen, setMenuOpen }) {
                                 </textPath>
                             </text>
                         ) : (
-                            <text dy="5">
+                            <text dy="5" fill={`${pathname.includes("muunai") ? "white" : "black"}`}>
                                 <textPath href="#textPath" startOffset="40%">
                                     MENU
                                 </textPath>

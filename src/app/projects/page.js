@@ -1,7 +1,40 @@
 'use client'
 
+import Link from "next/link"
+import { useEffect } from "react"
+
 
 export default function Home() {
+
+  const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  const randomChar = () => chars[Math.floor(Math.random() * (chars.length - 1))];
+  const randomString = (length) => Array.from(Array(length)).map(randomChar).join("");
+
+  useEffect(() => {
+    const card = document.querySelector(".card");
+    const letters = card.querySelector(".card-letters");
+
+    const handleOnMove = (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      letters.style.setProperty("--x", `${x}px`);
+      letters.style.setProperty("--y", `${y}px`);
+
+      letters.innerText = randomString(1500);
+    };
+
+    card.addEventListener("mousemove", handleOnMove);
+    card.addEventListener("touchmove", (e) => handleOnMove(e.touches[0]));
+
+    return () => {
+      card.removeEventListener("mousemove", handleOnMove);
+      card.removeEventListener("touchmove", (e) => handleOnMove(e.touches[0]));
+    };
+  }, []);
+
 
   return (
     <>
@@ -25,9 +58,60 @@ export default function Home() {
 
       {/* main */}
 
-      <div className='grid grid-cols-2 gap-5'>
-        <div className="w-96 h-56 bg-white rounded-xl"></div>
-        <div className="w-96 h-56 bg-white rounded-xl"></div>
+      <div className='grid sm:grid-cols-2 grid-cols-1 gap-5'>
+        <Link href='/projects/muunai' className="w-96 h-56 bg-blue-950 text-blue-100 rounded-xl overflow-hidden text-4xl font-bold items-center flex flex-col justify-center">
+
+
+          <div className="card-track">
+            <div className="card-wrapper">
+              <div className="card">
+                <div className="w-96 h-56 items-center justify-center flex flex-col z-10">
+                  {/* <img src="https://assets.codepen.io/1468070/Hyperplexed+Logo+-+Color+5.svg" /> */}
+                  muunai
+                  <span className="text-sm font-normal mt-2">medical report automation</span>
+                </div>
+                <div className="card-gradient"></div>
+                <div className="card-letters"></div>
+              </div>
+            </div>
+          </div>
+
+        </Link>
+
+        <Link href='/projects/swinglab' id='points-cont' className="group relative w-96 h-56 bg-white rounded-xl overflow-hidden text-4xl font-bold items-center flex flex-col justify-center">
+          <span className="z-10">swinglab</span>
+          <span className="text-sm font-normal mt-2 z-10">3D golf swing analysis</span>
+
+          <div className="group-hover:scale-110 transition w-full h-full absolute" id="points">
+            <span className="bg-orange-400 rounded-full w-4 h-4 absolute top-[90%] right-[80%]"></span>
+            <span className="bg-orange-400 rounded-full w-4 h-4 absolute top-[10%] right-[70%]"></span>
+            <span className="bg-orange-400 rounded-full w-3 h-3 absolute top-[20%] right-[30%]"></span>
+            <span className="bg-orange-400 rounded-full w-5 h-5 absolute top-[30%] right-[20%]"></span>
+            <span className="bg-orange-400 rounded-full w-3 h-3 absolute top-[60%] right-[60%]"></span>
+            <span className="bg-orange-400 rounded-full w-4 h-4 absolute top-[80%] right-[40%]"></span>
+
+            <span className="bg-sky-400 rounded-full w-4 h-4 absolute top-[92%] right-[63%]"></span>
+            <span className="bg-sky-400 rounded-full w-3 h-3 absolute top-[33%] right-[77%]"></span>
+            <span className="bg-sky-400 rounded-full w-5 h-5 absolute top-[15%] right-[35%]"></span>
+            <span className="bg-sky-400 rounded-full w-4 h-4 absolute top-[60%] right-[20%]"></span>
+            <span className="bg-sky-400 rounded-full w-3 h-3 absolute top-[64%] right-[90%]"></span>
+            <span className="bg-sky-400 rounded-full w-3 h-3 absolute top-[85%] right-[10%]"></span>
+          </div>
+
+          {/* <svg style={{display: 'none'}}>
+            <defs>
+              <filter id='noise'>
+                <feTurbulence type='fractalNoise' baseFrequency='0.7, 0.8' seed={1} result='warp' numOctaves='2' >
+                  <animate attributeName="seed" values="0;100" dur='800ms' repeatCount='1' begin='points-cont.mouseenter'/>
+                  </feTurbulence>
+                <feDisplacementMap in='SourceGraphic' in2='warp' scale='0' >
+                <animate attributeName="scale" values="0;40;0" dur='800ms' repeatCount='1' begin='points-cont.mouseenter'/>
+                </feDisplacementMap>
+              </filter>
+            </defs>
+          </svg> */}
+
+        </Link>
       </div>
 
     </>
