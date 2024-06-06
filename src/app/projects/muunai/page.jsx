@@ -18,6 +18,7 @@ export default function Page() {
         // Clean up the event listener when the component unmounts
         return () => {
             // card.removeEventListener('mousemove', handleMouseMove);
+            document.body.onpointermove = null;
         };
     }, []);
 

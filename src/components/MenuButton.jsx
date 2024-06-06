@@ -17,7 +17,7 @@ function MenuButton({ menuOpen, setMenuOpen }) {
                     onClick={() => setMenuOpen(!menuOpen)}
                     className={`w-20 h-20 rounded-full shadow-lg shadow-black/30 z-30 transition-colors duration-500 ${menuOpen ? 'bg-indigo-600' : 'bg-yellow-600'}`}
                 >
-                    <svg width="120" height="120" className="z-30 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <svg width="120" height="120" className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                         <defs>
                             <path id="textPath" d="M 10 60 A 50 50 0 1 1 110 60 A 50 50 0 1 1 10 60" />
                         </defs>
@@ -38,7 +38,7 @@ function MenuButton({ menuOpen, setMenuOpen }) {
                         )}
                     </svg>
 
-                </motion.button>
+                </motion.button>                
             </div>
 
         </>

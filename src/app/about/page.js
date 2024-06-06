@@ -58,7 +58,7 @@ export default function Home() {
       <div className="absolute left-5 top-5 flex flex-row items-end">
         <div className='h-12 w-20 relative'>
           <div
-            className={`absolute bg-[#072541] w-[70%] left-[15%] h-full rounded-t-full rounded-br-full relative`}
+            className={`absolute bg-[#072541] w-[70%] left-[15%] h-full rounded-t-full rounded-br-full`}
           >
             <div
               className={`bg-[#d6dbdc] w-[40%] h-[70%] rounded-t-full absolute bottom-0 left-[30%] pointer-events-none`}
@@ -80,7 +80,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center w-full h-full px-5">
         <div ref={cardRef} className="card-anim bg-orange-100 rounded-2xl sm:w-[50%] w-full shadow-lg shadow-black/20 p-10 relative">
           <div className="flex flex-col gap-5 mb-5">
-            <img src="/profile.heic" className="w-24 h-24 rounded-md" />
+            <img src="/profile.heic" className="w-24 h-24 rounded-md shadow-2xl shadow-black/80" />
             <span className="text-2xl font-medium">Julian Link</span>
           </div>
           Hey there, I am Julian, a student from Germany. I am currently studying AI and Robotics at the Technical University of Munich. My passions are machine learning and web development. Check out my projects and feel free to contact me!

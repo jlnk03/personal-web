@@ -142,7 +142,7 @@ export default function Navigation({ children }) {
                         >
                             <div className='h-full w-full'>
                                 <div
-                                    className={`absolute bg-[#072541] w-[70%] left-[15%] h-full rounded-t-full rounded-br-full relative`}
+                                    className={`absolute bg-[#072541] w-[70%] left-[15%] h-full rounded-t-full rounded-br-full`}
                                 >
                                     <div
                                         className={`bg-white w-[40%] h-[70%] rounded-t-full absolute bottom-0 left-[30%]`}
@@ -166,7 +166,7 @@ export default function Navigation({ children }) {
             </nav>
 
             <motion.span
-                className='absolute left-5 bottom-5 text-gray-300 text-sm'
+                className='absolute left-5 bottom-5 text-gray-300 text-sm hover:text-opacity-70'
                 initial='closed'
                 animate={menuOpen ? 'open' : 'closed'}
                 variants={impressum}
