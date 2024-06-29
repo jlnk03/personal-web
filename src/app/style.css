@@ -284,3 +284,17 @@
 
     transform: perspective(1000px) rotateY(var(--rotate-y, 0deg)) rotateX(var(--rotate-x, 0deg))
 }
+
+.lightbulb {
+    background: radial-gradient(circle, yellow, gold, darkgoldenrod);
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.lightbulb:hover {
+    opacity: 1; 
+}
+
+.parent:hover .lightbulb {
+    opacity: 1; 
+}

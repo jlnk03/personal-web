@@ -35,7 +35,7 @@ export default function Page() {
                     Discover
                 </Link>
 
-                <img src="/swinglab.png" alt="swinglab" className="w-full" />
+                <img src="/swinglab_app.png" alt="swinglab" className="w-full" />
 
                 <span className="pb-48">Swinglab is an app that gives personalized coaching advice for golfers based on a single video of the swing. The app uses AI to extract the 3D body movement of a player and shows areas of improvement.</span>
 

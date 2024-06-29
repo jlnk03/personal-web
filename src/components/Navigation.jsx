@@ -56,7 +56,7 @@ export default function Navigation({ children }) {
     return (
         <main className="flex h-[100dvh] flex-col justify-center">
             <motion.div
-                className='bg-gradient-to-br from-[#d6dbdc] to-white min-h-[100svh] w-full z-20 grid place-items-center'
+                className='bg-gradient-to-br from-[#d6dbdc] to-white min-h-[100svh] w-full z-20 grid place-items-center overflow-hidden'
                 animate={{ y: menuOpen ? '-50%' : '0' }}
                 transition={{ type: 'easeInOut', duration: 0.4 }}
             >

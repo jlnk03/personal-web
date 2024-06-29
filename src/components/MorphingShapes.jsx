@@ -97,10 +97,14 @@ function MorphingShapes({ children }) {
             ></div>
 
             {/* yellow */}
-            <div
-                className={`absolute bg-[#F4E869] ${shapeTwo[shapeConfig.config]}`}
-                style={{ transition: 'all 750ms ease-in-out', ...parseStyleString(shapeConfig.radius) }}
-            ></div>
+            <Link href='/projects/lsd' className='group'>
+                <div
+                    className={`absolute bg-[#F4E869] flex justify-center items-center ${shapeTwo[shapeConfig.config]}`}
+                    style={{ transition: 'all 750ms ease-in-out', ...parseStyleString(shapeConfig.radius) }}
+                >
+                    <span className="group-hover:opacity-100 opacity-0 text-5xl font-bold text-white z-20">L</span>
+                </div>
+            </Link>
 
             {/* blue */}
             <Link href='/projects/muunai' className='group'>
