@@ -10,7 +10,6 @@ export default function Impressum() {
                 <span>Steinhauser Str. 3</span>
                 <span>81677 München</span>
 
-                <span className="mt-5">Telefon: 089 23239080</span>
                 <span>E-Mail:&nbsp;
                     <a href="mailto:kokosnuss-abkommen-0k@icloud.com">
                     kokosnuss-abkommen-0k@icloud.com
