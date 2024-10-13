@@ -105,11 +105,7 @@ const Game = () => {
   const [pipes, setPipes] = useState([]);
   const [gameStarted, setGameStarted] = useState(false);
   const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(() => {
-    // Retrieve best score from localStorage if available
-    const storedBest = localStorage.getItem("bestScore");
-    return storedBest ? parseInt(storedBest, 10) : 0;
-  });
+  const [bestScore, setBestScore] = useState(0); // Initialize to 0
 
   const jump = useCallback(() => {
     if (!gameStarted) {
@@ -133,9 +129,11 @@ const Game = () => {
     if (!gameStarted) return;
 
     const gameLoop = setInterval(() => {
+      // Update bird position and velocity
       setBirdY((y) => y + birdVelocity);
       setBirdVelocity((v) => v + GRAVITY);
 
+      // Update pipes
       setPipes((currentPipes) => {
         // Move pipes to the left
         let newPipes = currentPipes.map((pipe) => ({ ...pipe, x: pipe.x - 2 }));
@@ -173,7 +171,6 @@ const Game = () => {
         // Update best score if current score is higher
         if (score > bestScore) {
           setBestScore(score);
-          localStorage.setItem("bestScore", score.toString());
         }
 
         // Reset game state
