@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from "react";
 
 const GAME_WIDTH = 400;
 const GAME_HEIGHT = 600;
-const GRAVITY = 0.9;
+const GRAVITY = 0.7;
 const JUMP_STRENGTH = -10;
 const PIPE_WIDTH = 80;
 const PIPE_GAP = 200;
