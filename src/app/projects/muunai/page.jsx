@@ -34,7 +34,7 @@ export default function Page() {
     );
     const firstImageScale = useTransform(scrollYProgress, 
         [0, 0.15, 0.2, 1],
-        [1, 1, 1, 1]
+        [1, 0.98, 0.98, 0.98]
     );
     const firstImageRotate = useTransform(scrollYProgress, 
         [0, 0.15, 0.2, 1],
