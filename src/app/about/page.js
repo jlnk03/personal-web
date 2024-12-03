@@ -21,41 +21,59 @@ export default function Home() {
 
   useEffect(() => {
     const card = cardRef.current;
+    let isAnimating = false;
 
     const handleMouseMove = (ev) => {
-      if (card) {
-        const x = ev.clientX - card.getBoundingClientRect().left;
-        const y = ev.clientY - card.getBoundingClientRect().top;
+      if (card && !isAnimating) {
+        const rect = card.getBoundingClientRect();
+        
+        // Check if mouse is actually within the card bounds
+        if (
+          ev.clientX < rect.left ||
+          ev.clientX > rect.right ||
+          ev.clientY < rect.top ||
+          ev.clientY > rect.bottom
+        ) {
+          handleMouseLeave();
+          return;
+        }
+
+        const x = ev.clientX - rect.left;
+        const y = ev.clientY - rect.top;
 
         const xc = card.clientWidth / 2;
         const yc = card.clientHeight / 2;
 
-        // offset from center of card in percentage
         const offsetX = ((x - xc) / xc) * tiltAngle;
         const offsetY = ((y - yc) / yc) * tiltAngle;
 
-        card.style.transition = "none";
+        card.style.transition = "transform 100ms ease-out";
         card.style.setProperty("--rotate-x", `${-offsetY}deg`);
         card.style.setProperty("--rotate-y", `${offsetX}deg`);
       }
     };
 
     const handleMouseLeave = () => {
-      if (card) {
-        card.style.transition = "transform 800ms";
-        card.style.setProperty("--rotate-x", `0deg`);
-        card.style.setProperty("--rotate-y", `0deg`);
+      if (card && !isAnimating) {
+        isAnimating = true;
+        card.style.transition = "transform 400ms ease-out";
+        card.style.setProperty("--rotate-x", "0deg");
+        card.style.setProperty("--rotate-y", "0deg");
+        
+        // Reset the animation flag after transition completes
+        setTimeout(() => {
+          isAnimating = false;
+        }, 400);
       }
     };
 
+    // Use mouseover instead of mousemove for better performance
+    card.addEventListener("mousemove", handleMouseMove);
     card.addEventListener("mouseleave", handleMouseLeave);
 
-    card.addEventListener("mousemove", handleMouseMove);
-
-    // Clean up the event listener when the component unmounts
     return () => {
-      card.removeEventListener("mouseleave", handleMouseLeave);
       card.removeEventListener("mousemove", handleMouseMove);
+      card.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
@@ -102,12 +120,12 @@ export default function Home() {
           studying AI and Robotics at the Technical University of Munich. My
           passions are machine learning and web development. Check out my
           projects and feel free to contact me!
-          <div className='absolute top-0 right-0 mt-10 mr-10 flex flex-row gap-2'>
+          <div className='absolute top-0 right-0 mt-10 mr-10 flex flex-row gap-0'>
             <Link
               href='https://www.linkedin.com/in/julian-link-b00297212'
               target='_blank'
               rel='noopener noreferrer'
-              className='p-2'
+              className='p-2 hover:scale-110 transition-all duration-300'
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -123,7 +141,7 @@ export default function Home() {
               href='https://github.com/jlnk03'
               target='_blank'
               rel='noopener noreferrer'
-              className='p-2'
+              className='p-2 hover:scale-110 transition-all duration-300'
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'

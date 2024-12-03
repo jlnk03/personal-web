@@ -1,6 +1,7 @@
 'use client'
-import Link from "next/link"
 import { useEffect, useRef } from "react"
+import MotionLink from "@/components/MotionLink"
+import { motion } from "framer-motion"
 
 export default function Page() {
 
@@ -31,9 +32,16 @@ export default function Page() {
                 <h1 className="sm:text-9xl text-6xl font-bold">swinglab</h1>
                 <span className="text-xl">3d golf swing analysis and coach</span>
 
-                <Link href="https://swinglab.app" className="w-fit px-6 py-3 bg-orange-400 text-black rounded-full my-10">
-                    Discover
-                </Link>
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                    <MotionLink 
+                        href="https://swinglab.app" 
+                        className="px-6 py-3 bg-orange-400 text-black rounded-full my-10 w-[140px] hover:bg-orange-300 transition-colors"
+                    />
+                </motion.div>
 
                 <img src="/swinglab_app.png" alt="swinglab" className="w-full" />
 

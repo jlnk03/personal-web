@@ -10,7 +10,7 @@ function MenuButton({ menuOpen, setMenuOpen }) {
 
     return (
         <>
-            <div className='absolute bottom-14 flex w-full justify-center'>
+            <div className='absolute bottom-6 flex w-full justify-center'>
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
